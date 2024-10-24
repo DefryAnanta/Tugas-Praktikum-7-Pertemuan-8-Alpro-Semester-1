@@ -11,12 +11,17 @@ struct Zodiak {
 
 // Fungsi untuk mengambil input tanggal lahir
 void inputTanggalLahir(int &tgl, int &bln, int &thn) {
-    cout << "\nMasukkan Tanggal Lahir Anda (tanggal-bulan-tahun): ";
+    cout << "Masukkan Tanggal Lahir Anda (1-31): ";
     cin >> tgl;
-    char dash1, dash2; // Untuk membaca pemisah antara tanggal, bulan, tahun
-    cin >> dash1;
-    cin >> bln >> dash2;
+    cout << "Masukkan Bulan Lahir Anda (1-12): ";
+    cin >> bln;
+    cout << "Masukkan Tahun Lahir Anda: ";
     cin >> thn;
+}
+
+// Fungsi untuk menampilkan tanggal lahir
+void tampilkanTanggalLahir(int tgl, int bln, int thn) {
+    cout << "\nTanggal lahir Anda: " << tgl << "-" << bln << "-" << thn << endl;
 }
 
 // Fungsi untuk menentukan zodiak berdasarkan tanggal lahir
@@ -54,7 +59,7 @@ void identitasProgram() {
          << "Nama       : Defry Ananta Perangin Angin" << endl
          << "NPM        : 2410631170066" << endl
          << "Kelas/Prodi: 1B/Informatika" << endl << endl
-         << "Selamat datang di program Menentukan Zodiak\n";
+         << "Selamat datang di program Menentukan Zodiak\n\n";
 }
 
 int main() {
@@ -68,13 +73,16 @@ int main() {
         // Memanggil fungsi untuk input tanggal lahir
         inputTanggalLahir(tgl, bln, thn);
 
+        // Memanggil fungsi untuk menampilkan tanggal lahir
+        tampilkanTanggalLahir(tgl, bln, thn);
+
         // Memanggil fungsi untuk menentukan zodiak
         tentukanZodiak(tgl, bln);
 
         // Menanyakan apakah pengguna ingin mencoba lagi
         cout << "\nApakah Anda ingin menentukan zodiak lagi? (y/n): ";
         cin >> lagi;
-
+        cout << endl;
     } while (lagi == 'y' || lagi == 'Y');
 
     cout << "Terima kasih dan sampai jumpa!" << endl;
